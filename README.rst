@@ -1,4 +1,4 @@
-Flask-Kadabra
+Flask-Cachual
 =============
 
 .. image:: https://secure.travis-ci.org/bal2ag/flask-cachual.png?branch=master
