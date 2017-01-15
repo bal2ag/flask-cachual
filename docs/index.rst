@@ -36,8 +36,8 @@ You can initialize :class:`~flask_cachual.Cachual` directly::
     Cachual(app)
 
 Or, you can defer initialization if you are utilizing the
-:doc:`flask:patterns/appfactories` pattern, using the
-:meth:`~flask_cachual.Cachual.init_app` method::
+`application factory <http://flask.pocoo.org/docs/0.12/patterns/appfactories/>`_
+pattern, using the :meth:`~flask_cachual.Cachual.init_app` method::
 
     from flask import Flask
     from flask_cachual import Cachual

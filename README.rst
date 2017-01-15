@@ -1,57 +1,29 @@
 Flask-Kadabra
 =============
 
-.. image:: https://secure.travis-ci.org/bal2ag/flask-kadabra.png?branch=master
-    :target: http://travis-ci.org/bal2ag/flask-kadabra
+.. image:: https://secure.travis-ci.org/bal2ag/flask-cachual.png?branch=master
+    :target: http://travis-ci.org/bal2ag/flask-cachual
     :alt: Build
 
-.. image:: https://readthedocs.org/projects/flask-kadabra/badge/?version=latest&style
-    :target: http://flask-kadabra.readthedocs.org/
+.. image:: https://readthedocs.org/projects/flask-cachual/badge/?version=latest&style
+    :target: http://flask-cachual.readthedocs.org/
     :alt: Documentation Status
 
-.. image:: https://coveralls.io/repos/github/bal2ag/flask-kadabra/badge.svg?branch=master
-    :target: https://coveralls.io/github/bal2ag/flask-kadabra?branch=master
+.. image:: https://coveralls.io/repos/github/bal2ag/flask-cachual/badge.svg?branch=master
+    :target: https://coveralls.io/github/bal2ag/flask-cachual?branch=master
     :alt: Coverage
 
-How quickly can you figure out how many server errors your Flask app is
-throwing? Can you determine which of your routes have the highest error rates?
-Do you know how long, on average, your SQLAlchemy writes take?
+Flask-Cachual is a Flask extension for the `Cachual
+<https://github.com/bal2ag/cachual>`_ library. It allows you to cache the
+return values of functions in your Flask app with a simple decorator::
 
-Flask-Kadabra extends the capabilities of the
-`Kadabra <https://github.com/bal2ag/kadabra>`_ metrics library to Flask:
+    from flask_cachual import cached
 
-- Enable metrics for your routes with a simple decorator.
-- Record metrics from anywhere in your application code, organized by your
-  routes.
-- Automatically track basic metrics per route such as timing and errors.
+    @cached(ttl=300) # 5 minutes
+    def get_user_email(user_id):
+        ...
 
-Installation is simple::
+It's that easy!
 
-    $ pip install Flask-Kadabra
-
-Setup is easy::
-
-    from flask import Flask
-    from flask_kadabra import Kadabra, record_metrics
-
-    app = Flask()
-    kadabra = Kadabra(app)
-
-    @app.route('/')
-    @record_metrics
-    def index():
-        return "Hello, world!"
-
-You can record whatever metrics you want from anywhere in your application
-code. They will all be grouped under the route you decorated, and recorded
-at the end of your request, with no performance impact::
-
-    from flask import g
-
-    g.metrics.add_count("userSignup", 1.0)
-
-All you have to do is run a local Redis server and run the Kadabra agent
-side-by-side with your Flask app, and you have metrics!
-
-Check out the full docs on `read the docs
-<http://flask-kadabra.readthedocs.io/en/latest/>`_.
+For details on how to install and use, see the `documentation
+<http://flask-cachual.readthedocs.io/en/latest/>`_.

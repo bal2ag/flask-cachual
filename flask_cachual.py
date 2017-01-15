@@ -32,9 +32,7 @@ class Cachual(object):
         if not cache_type:
             raise Exception("CACHUAL_TYPE must be specified")
         cache_type = cache_type.lower()
-        cache_args = app.config.get('CACHUAL_ARGS')
-        if cache_args is None:
-            raise Exception('CACHUAL_ARGS must be specified')
+        cache_args = app.config.get('CACHUAL_ARGS', {})
 
         if cache_type == 'redis':
             app.cachual_cache = cachual.RedisCache(**cache_args)

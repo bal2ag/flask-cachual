@@ -30,14 +30,6 @@ def test_init_no_type():
     with pytest.raises(Exception):
         cachual.init_app(app)
 
-def test_init_no_args():
-    app = get_app()
-    app.config["CACHUAL_TYPE"] = 'redis'
-
-    cachual = Cachual()
-    with pytest.raises(Exception):
-        cachual.init_app(app)
-
 @mock.patch('cachual.RedisCache')
 def test_init_redis(mock_redis_cache):
     cache = mock_redis_cache.return_value
