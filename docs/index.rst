@@ -77,14 +77,14 @@ Configuration
 
 You need to specify two configuration values in your application's config:
 
-============== ================================================================
-'CACHUAL_TYPE' The type of cache you want to use. Currently only two values are
-               supported: ``redis`` which corresponds to
-               :class:`~cachual.RedisCache` and ``memcached`` which corresponds
-               to :class:`~cachual.MemcachedCache`.
-'CACHUAL_ARGS' Dictionary of arguments to initialize the the Cachual cache
-               with. If ``None``, the cache's defaults will be used.
-============== ================================================================
+================ ==============================================================
+``CACHUAL_TYPE`` The type of cache you want to use. Currently only two values
+                 are supported: ``redis`` which corresponds to
+                 :class:`~cachual.RedisCache` and ``memcached`` which
+                 corresponds to :class:`~cachual.MemcachedCache`.
+``CACHUAL_ARGS`` Dictionary of arguments to initialize the the Cachual cache
+                 with. If ``None``, the cache's defaults will be used.
+================ ==============================================================
 
 API Documentation
 =================
