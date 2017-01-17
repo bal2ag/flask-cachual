@@ -42,7 +42,7 @@ class Cachual(object):
             raise Exception("Unrecognized cache type: %s" % cache_type)
         self.app = app
 
-def cached(ttl=None, pack=None, unpack=None):
+def cached(ttl=None, pack=None, unpack=None, use_class_for_self=False):
     """Functions decorated with this will have their value cached via the
     Cachual library. This is basically just a proxy to Cachual's
     :meth:`~cachual.CachualCache.cached` decorator. It ensures that the correct
@@ -51,7 +51,8 @@ def cached(ttl=None, pack=None, unpack=None):
         @wraps(f)
         def decorated(*args, **kwargs):
             cache = current_app.cachual_cache
-            cache_decorator = cache.cached(ttl, pack, unpack)
+            cache_decorator = cache.cached(ttl, pack, unpack,
+                    use_class_for_self)
             return cache_decorator(f)(*args, **kwargs)
         decorated.__wrapped__ = f # For unit testing
         return decorated

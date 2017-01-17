@@ -29,7 +29,7 @@ setup(
     platforms='any',
     install_requires=[
         'Flask',
-        'Cachual>=0.2.1'
+        'Cachual>=0.2.2'
     ],
     classifiers=[
         'Development Status :: 4 - Beta',

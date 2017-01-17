@@ -82,8 +82,10 @@ def test_cached(mock_redis_cache):
     ttl = MagicMock()
     pack = MagicMock()
     unpack = MagicMock()
+    use_class_for_self = MagicMock()
 
-    @cached(ttl=ttl, pack=pack, unpack=unpack)
+    @cached(ttl=ttl, pack=pack, unpack=unpack,
+            use_class_for_self=use_class_for_self)
     def test_cache_func(*args, **kwargs):
         pass
 
@@ -94,6 +96,6 @@ def test_cached(mock_redis_cache):
 
     with app.test_client() as c:
         c.get('/')
-        cache.cached.assert_called_with(ttl, pack, unpack)
+        cache.cached.assert_called_with(ttl, pack, unpack, use_class_for_self)
         cache_decorator.assert_called_with(test_cache_func.__wrapped__)
         cache_decorated.assert_called_with(*test_args, **test_kwargs)
