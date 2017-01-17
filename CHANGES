@@ -3,6 +3,12 @@ Flask-Cachual Changelog
 
 Here you can see the full list of changes between each Flask-Cachual release.
 
+Version 0.2.0
+-------------
+
+Support Cachual 0.2.2 with the use_class_for_self param. Bump version because
+we now depend on Cachual>=0.2.2.
+
 Version 0.1.0
 -------------
 

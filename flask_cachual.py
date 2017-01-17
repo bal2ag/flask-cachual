@@ -4,7 +4,7 @@ from functools import wraps
 
 import cachual
 
-__version__ = '0.1.0'
+__version__ = '0.2.0'
 
 class Cachual(object):
     """This object ties the Flask application object to the Cachual library by
